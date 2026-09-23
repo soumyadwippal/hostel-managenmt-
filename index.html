@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System Flowchart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis' }
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen p-8">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden p-8 border border-slate-100">
+        <div class="flex justify-between items-center mb-8 border-b pb-4">
+            <div>
+                <h1 class="text-3xl font-bold text-indigo-700">Hostel Management System</h1>
+                <p class="text-slate-500 mt-2">Comprehensive Structure & Requirements Flowchart</p>
+            </div>
+            <button onclick="window.print()" class="no-print bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Save as PDF
+            </button>
+        </div>
+
+        <div class="overflow-x-auto">
+            <div class="mermaid">
+                graph TD
+                HMS[Hostel Management System]
+                
+                %% Main Modules
+                HMS --> Admin[Admin Module]
+                HMS --> Student[Student Module]
+                HMS --> Mess[Mess / Cafeteria Module]
+                HMS --> Staff[Staff / Employee Module]
+                HMS --> Security[Security & Visitor Module]
+                
+                %% Admin Requirements
+                Admin --> A1[Room Management]
+                A1 --> A1a(Add/Edit Rooms)
+                A1 --> A1b(Room Allocation)
+                A1 --> A1c(Capacity & Availability)
+                
+                Admin --> A2[Fee Management]
+                A2 --> A2a(Invoice Generation)
+                A2 --> A2b(Payment Tracking)
+                A2 --> A2c(Defaulter List)
+                
+                Admin --> A3[Reporting & Analytics]
+                A3 --> A3a(Occupancy Reports)
+                A3 --> A3b(Revenue Reports)
+                
+                %% Student Requirements
+                Student --> S1[Profile Management]
+                S1 --> S1a(Personal Details)
+                S1 --> S1b(Guardian Info)
+                
+                Student --> S2[Dashboard]
+                S2 --> S2a(Room Info)
+                S2 --> S2b(Fee Status)
+                
+                Student --> S3[Requests & Complaints]
+                S3 --> S3a(Leave/Gate Pass Application)
+                S3 --> S3b(Maintenance Requests)
+                
+                %% Mess Requirements
+                Mess --> M1[Menu Management]
+                M1 --> M1a(Weekly Menu)
+                M1 --> M1b(Special Meals)
+                
+                Mess --> M2[Inventory Tracking]
+                M2 --> M2a(Groceries)
+                M2 --> M2b(Vendor Payments)
+                
+                %% Staff Requirements
+                Staff --> ST1[Attendance]
+                ST1 --> ST1a(Check-in / Check-out)
+                
+                Staff --> ST2[Payroll]
+                ST2 --> ST2a(Salary Processing)
+                
+                %% Security
+                Security --> SEC1[Visitor Log]
+                SEC1 --> SEC1a(Check-in / Check-out)
+                SEC1 --> SEC1b(Host Approval)
+                
+                Security --> SEC2[Student Gate Pass]
+                SEC2 --> SEC2a(Verify Approved Leaves)
+                
+                %% Styling
+                classDef mainNode fill:#4f46e5,stroke:#312e81,stroke-width:2px,color:#fff,rx:10px,ry:10px;
+                classDef moduleNode fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#065f46,rx:5px,ry:5px;
+                classDef featureNode fill:#f0f9ff,stroke:#0284c7,stroke-width:1px,color:#0c4a6e,rx:5px,ry:5px;
+                classDef subNode fill:#fff,stroke:#cbd5e1,stroke-width:1px,color:#475569,stroke-dasharray: 5 5;
+                
+                class HMS mainNode;
+                class Admin,Student,Mess,Staff,Security moduleNode;
+                class A1,A2,A3,S1,S2,S3,M1,M2,ST1,ST2,SEC1,SEC2 featureNode;
+                class A1a,A1b,A1c,A2a,A2b,A2c,A3a,A3b,S1a,S1b,S2a,S2b,S3a,S3b,M1a,M1b,M2a,M2b,ST1a,ST2a,SEC1a,SEC1b,SEC2a subNode;
+            </div>
+        </div>
+        
+        <div class="mt-12 bg-slate-50 rounded-lg p-6 border border-slate-200">
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">Core Requirements Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-indigo-700">1. User Authentication & Roles</h3>
+                    <p class="text-sm text-slate-600 mt-1">Secure login system with Role-Based Access Control (RBAC) for Admins, Wardens, Students, and Security Guards.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-indigo-700">2. Room Allocation Algorithm</h3>
+                    <p class="text-sm text-slate-600 mt-1">Automated or manual assignment based on preferences, course, and available capacities.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-indigo-700">3. Payment Gateway Integration</h3>
+                    <p class="text-sm text-slate-600 mt-1">Online fee collection with automated receipt generation and payment status updates.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-indigo-700">4. Notification System</h3>
+                    <p class="text-sm text-slate-600 mt-1">Email and SMS alerts for fee dues, gate pass approvals, and general hostel announcements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
